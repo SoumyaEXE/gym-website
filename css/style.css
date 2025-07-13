@@ -30,10 +30,11 @@ header {
     top: 0;
     width: 100%;
     z-index: 10;
-    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%) !important;
+    background: rgba(0, 0, 0, 0.7) !important; /* Semi-transparent for glassmorphism */
     padding: 15px 0;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
 }
 
 header .container {
@@ -48,12 +49,12 @@ header .logo a {
     color: #FFFFFF;
     font-weight: 700;
     letter-spacing: 1px;
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition: color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Modern cubic-bezier transition */
 }
 
 header .logo a:hover {
     color: #FFB300;
-    transform: scale(1.05);
+    transform: scale(1.08); /* Slightly larger scale */
 }
 
 header .logo a span {
@@ -62,8 +63,7 @@ header .logo a span {
 
 header .nav {
     position: fixed;
-    background: linear-gradient(135deg, #FFB300 0%, #FFC107 100%) !important;
-    background-color: #FFB300 !important;
+    background: rgba(255, 179, 0, 0.9) !important; /* Semi-transparent for glassmorphism */
     width: 280px;
     top: 0;
     right: 0;
@@ -71,17 +71,19 @@ header .nav {
     z-index: 999;
     padding: 100px 0 15px;
     transform: translateX(100%);
-    transition: transform 0.5s ease;
+    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Springy transition */
     opacity: 1 !important;
-    backdrop-filter: none !important;
+    backdrop-filter: blur(8px); /* Glassmorphism effect */
+    -webkit-backdrop-filter: blur(8px); /* For Safari */
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.2); /* Shadow on the side */
 }
 
 header .nav.open {
     transform: translateX(0);
-    background: linear-gradient(135deg, #FFB300 0%, #FFC107 100%) !important;
-    background-color: #FFB300 !important;
+    background: rgba(255, 179, 0, 0.9) !important; /* Consistency */
     opacity: 1 !important;
-    backdrop-filter: none !important;
+    backdrop-filter: blur(8px); /* Consistency */
+    -webkit-backdrop-filter: blur(8px); /* For Safari */
 }
 
 header .nav ul {
@@ -91,6 +93,7 @@ header .nav ul {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: inherit;
 }
 
 header .nav ul li {
@@ -107,7 +110,9 @@ header .nav ul li a {
     display: block;
     position: relative;
     padding: 12px 30px;
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smoother transitions */
+    overflow: hidden; /* For pseudo-element animation */
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);
 }
 
 header .nav.open ul li a,
@@ -116,8 +121,8 @@ header .nav ul li a.animated.bounceInUp {
 }
 
 header .nav ul li a:hover {
-    color: #FFB300 !important;
-    transform: translateX(10px) rotate(2deg);
+    color: #FFFFFF !important; /* Color change on hover */
+    transform: translateX(8px); /* Subtle slide */
 }
 
 header .nav ul li a::before {
@@ -127,19 +132,23 @@ header .nav ul li a::before {
     top: 0;
     height: 100%;
     width: 100%;
-    background: #FFFFFF;
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent white for hover */
     z-index: -1;
+    transform: translateX(-100%); /* Start off-screen */
+    transition: transform 0.4s ease-out; /* Slide in transition */
 }
 
 header .nav ul li a.active::before,
 header .nav ul li a:hover::before {
-    background: #ffffff;
+    transform: translateX(0); /* Slide in on hover/active */
 }
 
 header .ham-burger {
     display: inline-block;
     position: relative;
     z-index: 1000;
+    cursor: pointer; /* Indicate clickability */
+    padding: 5px; /* Increase click area */
 }
 
 header .ham-burger span {
@@ -148,7 +157,7 @@ header .ham-burger span {
     display: block;
     background-color: #FFFFFF;
     width: 30px;
-    transition: transform 0.5s ease, background-color 0.3s ease;
+    transition: transform 0.4s ease-in-out, background-color 0.3s ease-in-out; /* Consistent transitions */
 }
 
 header .ham-burger.active span {
@@ -182,6 +191,7 @@ header .ham-burger.active span:nth-child(2) {
     align-items: center;
     justify-content: center;
     position: relative;
+    overflow: hidden; /* Ensure content doesn't spill */
 }
 
 .home .go-down {
@@ -194,22 +204,26 @@ header .ham-burger.active span:nth-child(2) {
     text-align: center;
     left: 50%;
     transform: translateX(-50%);
-    transition: border-color 0.3s ease, transform 0.3s ease;
+    transition: border-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    display: flex; /* For vertical centering of icon */
+    align-items: center;
+    justify-content: center;
 }
 
 .home .go-down:hover {
     border-color: #FFB300;
-    transform: translateX(-50%) scale(1.1) rotate(5deg);
+    transform: translateX(-50%) scale(1.1); /* Simplified hover */
+    box-shadow: 0 0 15px rgba(255, 179, 0, 0.5); /* Glowing effect */
 }
 
 .home .go-down .fa {
     color: #FFFFFF;
-    animation: goDown 1.2s ease infinite;
+    animation: goDown 1.5s infinite cubic-bezier(0.42, 0, 0.58, 1); /* Slower, smoother animation */
 }
 
 @keyframes goDown {
-    0% { transform: translateY(0); opacity: 0.6; }
-    100% { transform: translateY(12px); opacity: 0.8; }
+    0%, 100% { transform: translateY(0); opacity: 0.8; }
+    50% { transform: translateY(15px); opacity: 0.6; }
 }
 
 .home .container {
@@ -219,7 +233,28 @@ header .ham-burger.active span:nth-child(2) {
     justify-content: center;
     align-items: center;
     text-align: center;
+    background: rgba(0, 0, 0, 0.4); /* Subtle glassmorphism background */
+    backdrop-filter: blur(5px); /* Glassmorphism effect */
+    -webkit-backdrop-filter: blur(5px); /* For Safari */
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Stronger shadow */
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transform: translateY(0);
+    animation: fadeInUp 1.2s ease-out forwards; /* Initial animation for container */
 }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
 .home h1 {
     color: #FFFFFF;
@@ -228,7 +263,7 @@ header .ham-burger.active span:nth-child(2) {
     text-transform: uppercase;
     margin: 0 0 10px;
     letter-spacing: 2px;
-    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 6px 15px rgba(0, 0, 0, 0.6); /* Enhanced text shadow */
     padding: 20px;
 }
 
@@ -242,7 +277,7 @@ header .ham-burger.active span:nth-child(2) {
     font-weight: 500;
     margin: 0;
     padding: 0 20px 20px;
-    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 6px 15px rgba(0, 0, 0, 0.6); /* Enhanced text shadow */
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -260,25 +295,26 @@ header .ham-burger.active span:nth-child(2) {
 }
 
 .about .content .box {
-    flex: 0 0 33.33%;
-    max-width: 33.33%;
+    flex: 0 0 calc(33.33% - 20px); /* Adjust for gap */
+    max-width: calc(33.33% - 20px);
     padding: 15px;
 }
 
 .about .content .box .inner {
     background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), inset 0 0 10px rgba(255, 255, 255, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25), inset 0 0 12px rgba(255, 255, 255, 0.15); /* Stronger shadow, better inset */
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out; /* Modern transitions */
     min-height: 450px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden; /* For image scaling */
 }
 
 .about .content .box .inner:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(-15px) scale(1.03); /* More pronounced lift and scale */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
 }
 
 .about .content .box:nth-child(2) .inner {
@@ -288,18 +324,19 @@ header .ham-burger.active span:nth-child(2) {
 .about .content .box .inner .img {
     width: 100%;
     text-align: center;
+    overflow: hidden; /* Clip image overflow on scale */
+    border-radius: 12px 12px 0 0; /* Match container border-radius */
 }
 
 .about .content .box .inner .img img {
     width: 100%;
-    height: auto;
-    max-height: 300px;
-    object-fit: contain;
-    transition: transform 0.3s ease;
+    height: 250px; /* Fixed height for consistency */
+    object-fit: cover; /* Cover the area */
+    transition: transform 0.5s ease-in-out; /* Slower, smoother zoom */
 }
 
-.about .content .box .inner .img img:hover {
-    transform: scale(1.08);
+.about .content .box .inner:hover .img img {
+    transform: scale(1.15); /* More zoom on hover */
 }
 
 .about .content .box .inner .text {
@@ -340,8 +377,8 @@ header .ham-burger.active span:nth-child(2) {
 }
 
 .service .content .box {
-    flex: 0 0 50%;
-    max-width: 50%;
+    flex: 0 0 calc(50% - 20px); /* Adjust for gap */
+    max-width: calc(50% - 20px);
     padding: 15px;
 }
 
@@ -374,51 +411,61 @@ header .ham-burger.active span:nth-child(2) {
     border-radius: 8px;
     cursor: pointer;
     font-weight: 600;
-    transition: all 0.3s ease, transform 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Modern transition */
     margin: 0 auto;
     display: block;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .service .content .text .btn:hover {
     background: transparent;
     border-color: #FFFFFF;
     color: #FFFFFF;
-    transform: scale(1.05) rotate(2deg);
+    transform: scale(1.08) translateY(-3px); /* Subtle lift and scale */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .service .content .accordian-container {
     margin-bottom: 10px;
     border-radius: 8px;
-    overflow: visible;
-    transition: transform 0.3s ease;
+    overflow: hidden; /* Ensure content is clipped */
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    background: rgba(255, 255, 255, 0.15); /* Light glassmorphism */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .service .content .accordian-container:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px); /* More pronounced lift */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .service .content .accordian-container .head {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.3); /* Darker semi-transparent */
     position: relative;
     padding: 15px 20px;
     cursor: pointer;
+    transition: background 0.3s ease-in-out;
 }
 
 .service .content .accordian-container .head .fa {
     position: absolute;
     right: 15px;
-    top: 15px;
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust for accurate centering */
     color: #FFFFFF;
     height: 30px;
     width: 30px;
     text-align: center;
     line-height: 30px;
     border-radius: 50%;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease-in-out;
 }
 
 .service .content .accordian-container.active .head .fa {
-    transform: rotate(180deg);
+    transform: translateY(-50%) rotate(180deg); /* Rotate around center */
 }
 
 .service .content .accordian-container .head h4 {
@@ -437,12 +484,12 @@ header .ham-burger.active span:nth-child(2) {
 .service .content .accordian-container .body {
     display: none;
     padding: 20px;
-    background: #000000;
-    border-top: 1px solid #333333;
+    background: rgba(0, 0, 0, 0.8); /* Darker background for expanded content */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
 }
 
 .service .content .accordian-container:nth-child(1) .body {
-    display: block;
+    display: block; /* Keep first one open by default if needed */
 }
 
 .service .content .accordian-container .body p {
@@ -467,8 +514,8 @@ header .ham-burger.active span:nth-child(2) {
 }
 
 .classes .content .box {
-    flex: 0 0 50%;
-    max-width: 50%;
+    flex: 0 0 calc(50% - 20px); /* Adjust for gap */
+    max-width: calc(50% - 20px);
     padding: 15px;
 }
 
@@ -478,15 +525,16 @@ header .ham-burger.active span:nth-child(2) {
 
 .classes .content .img img {
     width: 100%;
-    height: auto;
-    max-height: 300px;
-    object-fit: contain;
+    height: 300px; /* Consistent height */
+    object-fit: cover; /* Cover the area */
     border-radius: 8px;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .classes .content .img img:hover {
-    transform: scale(1.08);
+    transform: scale(1.05); /* Gentle zoom */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 .classes .content .text {
@@ -514,14 +562,16 @@ header .ham-burger.active span:nth-child(2) {
     margin-bottom: 30px;
     display: flex;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25); /* Stronger shadow */
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
     min-height: 350px;
-    overflow: visible;
+    overflow: hidden; /* Ensure content doesn't spill */
+    align-items: stretch; /* Ensure equal height columns */
 }
 
 .classes .content .class-items .item:hover {
-    transform: translateY(-5px) scale(1.02);
+    transform: translateY(-10px) scale(1.01); /* Lift and subtle scale */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
 
 .classes .content .class-items .item:nth-child(1) {
@@ -537,22 +587,26 @@ header .ham-burger.active span:nth-child(2) {
     flex: 0 0 50%;
     max-width: 50%;
     position: relative;
+    display: flex; /* For centering content within */
+    flex-direction: column;
+    justify-content: center;
 }
 
 .classes .content .class-items .item .item-img {
     text-align: center;
+    overflow: hidden;
+    border-radius: 0 8px 8px 0; /* Round corners for the image part only */
 }
 
 .classes .content .class-items .item .item-img img {
     width: 100%;
-    height: auto;
-    max-height: 300px;
-    object-fit: contain;
-    transition: transform 0.3s ease;
+    height: 100%; /* Fill the height of the container */
+    object-fit: cover; /* Cover the area */
+    transition: transform 0.5s ease-in-out;
 }
 
-.classes .content .class-items .item .item-img img:hover {
-    transform: scale(1.08);
+.classes .content .class-items .item:hover .item-img img {
+    transform: scale(1.15); /* Zoom in on hover */
 }
 
 .classes .content .class-items .item .item-img .price {
@@ -565,28 +619,35 @@ header .ham-burger.active span:nth-child(2) {
     text-align: center;
     line-height: 50px;
     border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for price tag */
+    transition: transform 0.3s ease-out;
+}
+
+.classes .content .class-items .item .item-img .price:hover {
+    transform: scale(1.1) rotate(5deg); /* Pop and rotate */
 }
 
 .classes .content .class-items .item:nth-child(1) .item-img .price {
     background: #FFB300;
-    left: 10px;
-    top: 10px;
+    left: 15px; /* Adjust position */
+    top: 15px; /* Adjust position */
 }
 
 .classes .content .class-items .item:nth-child(2) .item-img .price {
     background: #000000;
-    right: 10px;
-    top: 10px;
+    right: 15px; /* Adjust position */
+    top: 15px; /* Adjust position */
 }
 
 .classes .content .class-items .item .item-text {
     text-align: left;
+    padding: 20px; /* Added padding to the text block */
 }
 
 .classes .content .class-items .item .item-text h4 {
     font-size: 24px;
     margin: 0;
-    padding: 20px 20px 15px;
+    padding: 0 0 15px;
     font-weight: 600;
     color: #FFFFFF !important;
     text-transform: capitalize;
@@ -603,7 +664,7 @@ header .ham-burger.active span:nth-child(2) {
     line-height: 26px;
     color: #FFFFFF !important;
     margin: 0;
-    padding: 0 20px 20px;
+    padding: 0 0 20px;
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -613,13 +674,13 @@ header .ham-burger.active span:nth-child(2) {
     display: inline-block;
     color: #FFFFFF !important;
     font-weight: 600;
-    padding: 0 20px 20px;
-    transition: color 0.3s ease, transform 0.3s ease;
+    padding: 0; /* Remove redundant padding */
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .classes .content .class-items .item .item-text a:hover {
     color: #FFB300 !important;
-    transform: translateX(5px) rotate(2deg);
+    transform: translateX(5px);
 }
 
 .classes .content .class-items .item:nth-child(2) .item-text a:hover {
@@ -640,30 +701,36 @@ header .ham-burger.active span:nth-child(2) {
 }
 
 .start-today .content .box {
-    flex: 0 0 50%;
-    max-width: 50%;
+    flex: 0 0 calc(50% - 20px); /* Adjust for gap */
+    max-width: calc(50% - 20px);
     padding: 15px;
 }
 
 .start-today .content .img {
     text-align: center;
+    border-radius: 8px; /* Apply border-radius to the container */
+    overflow: hidden; /* Ensure image respects border-radius */
 }
 
 .start-today .content .img img {
     width: 100%;
-    height: auto;
-    max-height: 400px;
-    object-fit: contain;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
+    height: 350px; /* Fixed height for consistency */
+    object-fit: cover; /* Cover the area */
+    border-radius: 8px; /* Applied to the image too for consistency */
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .start-today .content .img img:hover {
-    transform: scale(1.08);
+    transform: scale(1.05); /* Gentle zoom */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
 }
 
 .start-today .content .text {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
 }
 
 .start-today .content .text h2 {
@@ -693,15 +760,17 @@ header .ham-burger.active span:nth-child(2) {
     border-radius: 8px;
     cursor: pointer;
     font-weight: 600;
-    transition: all 0.3s ease, transform 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .start-today .content .text .btn:hover {
     background: transparent;
     border-color: #FFFFFF;
     color: #FFFFFF;
-    transform: scale(1.05) rotate(2deg);
+    transform: scale(1.08) translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* Class Schedule Section */
@@ -718,8 +787,8 @@ header .ham-burger.active span:nth-child(2) {
 }
 
 .schedule .content .box {
-    flex: 0 0 50%;
-    max-width: 50%;
+    flex: 0 0 calc(50% - 20px); /* Adjust for gap */
+    max-width: calc(50% - 20px);
     padding: 15px;
 }
 
@@ -746,23 +815,25 @@ header .ham-burger.active span:nth-child(2) {
 
 .schedule .content .text img {
     width: 100%;
-    height: auto;
-    max-height: 300px;
-    object-fit: contain;
+    height: 300px; /* Fixed height for consistency */
+    object-fit: cover; /* Cover the area */
     border-radius: 8px;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .schedule .content .text img:hover {
-    transform: scale(1.08);
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 .schedule .content .timing .table {
     width: 100%;
     border-collapse: collapse;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25); /* Stronger shadow */
     margin: 0 auto;
+    overflow: hidden; /* Ensure border-radius applies to table */
 }
 
 .schedule .content .timing .table td {
@@ -772,6 +843,7 @@ header .ham-burger.active span:nth-child(2) {
     text-align: center;
     color: #000000;
     font-family: 'Open Sans', sans-serif;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .schedule .content .timing .table tr:nth-child(even) td.day {
@@ -792,6 +864,12 @@ header .ham-burger.active span:nth-child(2) {
     font-weight: 600;
 }
 
+.schedule .content .timing .table td:hover:not(.day) {
+    background-color: #f0f0f0; /* Subtle hover for regular cells */
+    cursor: pointer;
+}
+
+
 /* Gallery Section */
 .gallery {
     padding: 100px 0;
@@ -806,29 +884,31 @@ header .ham-burger.active span:nth-child(2) {
 }
 
 .gallery .content .box {
-    flex: 0 0 50%;
-    max-width: 50%;
+    flex: 0 0 calc(50% - 20px); /* Adjust for gap */
+    max-width: calc(50% - 20px);
     text-align: center;
+    padding: 15px; /* Add some padding around images */
 }
 
 .gallery .content .box:nth-child(n+5) {
-    display: none;
+    display: none; /* Keep the display logic as is */
 }
 
 .gallery .content .box img {
     width: 100%;
-    height: auto;
-    max-height: 400px;
-    object-fit: contain;
-    border-radius: 8px;
+    height: 350px; /* Fixed height for consistent grid */
+    object-fit: cover; /* Ensure images fill the space */
+    border-radius: 12px; /* Softer border-radius */
     filter: brightness(70%);
-    transition: all 0.5s ease, transform 0.3s ease;
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother transition */
     margin: 0 auto;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Stronger initial shadow */
 }
 
 .gallery .content .box img:hover {
     filter: brightness(100%);
-    transform: scale(1.08);
+    transform: scale(1.05); /* Gentle zoom */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45); /* More pronounced shadow on hover */
 }
 
 .gallery h2 {
@@ -843,7 +923,7 @@ header .ham-burger.active span:nth-child(2) {
 /* Price Section */
 .price-package {
     padding: 100px 0;
-    background-color: #FFFFFF;
+    background-color: #f5f5f5; /* Changed background for better contrast */
 }
 
 .price-package h2 {
@@ -873,25 +953,26 @@ header .ham-burger.active span:nth-child(2) {
 }
 
 .price-package .content .box {
-    flex: 0 0 33.33%;
-    max-width: 33.33%;
+    flex: 0 0 calc(33.33% - 20px); /* Adjust for gap */
+    max-width: calc(33.33% - 20px);
     padding: 15px;
 }
 
 .price-package .content .box .inner {
     background: #FFFFFF;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), inset 0 0 10px rgba(255, 255, 255, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.05); /* Softer shadow for cards */
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
     min-height: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
 }
 
 .price-package .content .box .inner:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
 }
 
 .price-package .content .box .inner .price-tag {
@@ -902,6 +983,7 @@ header .ham-burger.active span:nth-child(2) {
     text-align: center;
     font-weight: 700;
     width: 100%;
+    border-radius: 12px 12px 0 0; /* Only top corners rounded */
 }
 
 .price-package .content .box .inner .text {
@@ -938,32 +1020,34 @@ header .ham-burger.active span:nth-child(2) {
     border-radius: 8px;
     cursor: pointer;
     font-weight: 600;
-    transition: all 0.3s ease, transform 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     margin-top: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .price-package .content .box .inner .text .btn:hover {
     background: transparent;
     border-color: #000000;
     color: #000000;
-    transform: scale(1.05) rotate(2deg);
+    transform: scale(1.08) translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .price-package .content .box .inner .img {
     text-align: center;
+    overflow: hidden; /* For image scaling */
+    border-radius: 0 0 12px 12px; /* Match container border-radius for bottom */
 }
 
 .price-package .content .box .inner .img img {
     width: 100%;
-    height: auto;
-    max-height: 300px;
-    object-fit: contain;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover; /* Cover the area */
+    transition: transform 0.5s ease-in-out;
 }
 
-.price-package .content .box .inner .img img:hover {
-    transform: scale(1.08);
+.price-package .content .box .inner:hover .img img {
+    transform: scale(1.15); /* Zoom in on hover */
 }
 
 /* Contact Section */
@@ -980,13 +1064,20 @@ header .ham-burger.active span:nth-child(2) {
 }
 
 .contact .content .box {
-    flex: 0 0 50%;
-    max-width: 50%;
+    flex: 0 0 calc(50% - 20px); /* Adjust for gap */
+    max-width: calc(50% - 20px);
     padding: 15px;
 }
 
 .contact .content .form {
     text-align: center;
+    background: rgba(255, 255, 255, 0.1); /* Subtle glassmorphism for form container */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .contact .content .form input,
@@ -996,12 +1087,12 @@ header .ham-burger.active span:nth-child(2) {
     max-width: 500px;
     padding: 10px 15px;
     margin: 0 auto 20px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid #FFFFFF;
+    background: rgba(255, 255, 255, 0.15); /* Slightly more opaque for better input visibility */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* More defined border */
     border-radius: 8px;
     font-family: 'Open Sans', sans-serif;
     color: #FFFFFF;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
     display: block;
 }
 
@@ -1009,16 +1100,19 @@ header .ham-burger.active span:nth-child(2) {
 .contact .content .form textarea:focus {
     outline: none;
     border-color: #FFB300;
-    box-shadow: 0 0 10px rgba(255, 179, 0, 0.3);
+    box-shadow: 0 0 15px rgba(255, 179, 0, 0.5); /* Stronger glow */
+    background-color: rgba(255, 255, 255, 0.2); /* Slightly lighter on focus */
 }
 
 .contact .content .form input::placeholder,
 .contact .content .form textarea::placeholder {
-    color: #C5C5C5;
+    color: #E0E0E0; /* Lighter placeholder text */
+    opacity: 0.8; /* Subtle transparency */
 }
 
 .contact .content .form textarea {
     height: 120px;
+    resize: vertical; /* Allow vertical resizing */
 }
 
 .contact .content .form button {
@@ -1032,20 +1126,32 @@ header .ham-burger.active span:nth-child(2) {
     font-weight: 600;
     border-radius: 8px;
     cursor: pointer;
-    transition: all 0.3s ease, transform 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     margin: 0 auto;
     display: block;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .contact .content .form button:hover {
     background: transparent;
     color: #FFFFFF;
-    border-color: #FFFFFF;
-    transform: scale(1.05) rotate(2deg);
+    border: 1px solid #FFFFFF; /* Add border on hover */
+    transform: scale(1.08) translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .contact .content .text {
     text-align: center;
+    background: rgba(255, 255, 255, 0.05); /* Even more subtle glassmorphism for info box */
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .contact .content .text h2 {
@@ -1072,23 +1178,19 @@ header .ham-burger.active span:nth-child(2) {
 }
 
 .contact .content .text .info li {
-    display: block;
+    display: flex; /* Use flexbox for icon alignment */
+    align-items: center;
     margin-bottom: 15px;
     color: #FFFFFF;
     font-size: 16px;
     letter-spacing: 1px;
-    position: relative;
-    padding-left: 40px;
     font-family: 'Open Sans', sans-serif;
 }
 
 .contact .content .text .info li span {
-    display: inline-block;
-    position: absolute;
-    left: 0;
-    top: 0;
     font-size: 20px;
     color: #FFB300;
+    margin-right: 15px; /* Space between icon and text */
 }
 
 .contact .content .text .social {
@@ -1103,16 +1205,20 @@ header .ham-burger.active span:nth-child(2) {
     text-align: center;
     background: linear-gradient(135deg, #FFB300 0%, #FFC107 100%);
     text-decoration: none;
-    display: inline-block;
-    margin-right: 10px;
+    display: inline-flex; /* Use inline-flex for better centering */
+    align-items: center;
+    justify-content: center;
+    margin: 0 8px; /* Slightly adjusted margin */
     border-radius: 50%;
-    transition: all 0.3s ease, transform 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .contact .content .text .social a:hover {
     background: transparent;
-    border-color: #FFFFFF;
-    transform: scale(1.1) rotate(5deg);
+    border: 1px solid #FFFFFF; /* Add border on hover */
+    transform: scale(1.15) rotate(7deg); /* More pronounced effect */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .contact .content .text .social a span {
@@ -1121,7 +1227,7 @@ header .ham-burger.active span:nth-child(2) {
 }
 
 .contact .content .text .copy {
-    border-top: 1px solid #333333;
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Softer border */
     margin-top: 30px;
     padding-top: 20px;
     color: #C5C5C5;
@@ -1142,25 +1248,30 @@ header .ham-burger.active span:nth-child(2) {
     height: 400px;
     border: 0;
     border-radius: 8px;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
 
 .contact .content .text .map iframe:hover {
-    opacity: 0.9;
+    opacity: 0.95; /* Slightly less opaque */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
 }
 
 .contact .content .text .copy a {
-    color: #C5C5C5; /* Or whatever the default color of the text is */
-    text-decoration: none; /* Remove underline by default */
-    transition: color 0.3s ease; /* Smooth transition for color change */
+    color: #C5C5C5;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
 }
 
 .contact .content .text .copy a:hover {
-    color: #FFB300; /* Yellow on hover */
+    color: #FFB300;
 }
 
 /* Responsive */
+
+/* Large Desktops & Laptops (1024px to 1440px) */
 @media (min-width: 1024px) and (max-width: 1440px) {
+    /* Ensure consistent spacing and centering for content sections */
     .about .content,
     .service .content,
     .start-today .content,
@@ -1168,126 +1279,195 @@ header .ham-burger.active span:nth-child(2) {
     .price-package .content,
     .gallery .content,
     .classes .content {
-        gap: 20px;
-        justify-content: center;
+        gap: 20px; /* Consistent gap between items */
+        justify-content: center; /* Center items within the container */
     }
+
+    /* About and Price Package sections: 3 columns */
     .about .content .box,
     .price-package .content .box {
-        flex: 0 0 33.33%;
-        max-width: 33.33%;
+        flex: 0 0 calc(33.33% - 13.33px); /* 3 columns with 20px gap (20px * 2 gaps / 3 boxes = 13.33px per box reduction) */
+        max-width: calc(33.33% - 13.33px);
     }
+
+    /* Service, Start Today, Schedule, Classes, Gallery sections: 2 columns */
     .service .content .box,
     .start-today .content .box,
     .schedule .content .box,
     .classes .content .box,
     .gallery .content .box {
-        flex: 0 0 50%;
-        max-width: 50%;
+        flex: 0 0 calc(50% - 10px); /* 2 columns with 20px gap (20px * 1 gap / 2 boxes = 10px per box reduction) */
+        max-width: calc(50% - 10px);
     }
+
+    /* Consistent minimum heights for inner content boxes */
     .about .content .box .inner,
     .price-package .content .box .inner,
     .classes .content .class-items .item {
         min-height: 450px;
     }
+
+    /* Adjusted fixed heights for various images on larger screens */
     .about .content .box .inner .img img,
     .price-package .content .box .inner .img img,
     .classes .content .img img,
     .classes .content .class-items .item .item-img img,
     .start-today .content .img img,
     .schedule .content .text img {
-        max-height: 300px;
+        height: 280px; /* Slightly reduced for this range, ensuring consistency */
+        object-fit: cover; /* Ensure images cover the area without distortion */
     }
+
+    /* Gallery images specific height */
     .gallery .content .box img {
-        max-height: 400px;
+        height: 350px; /* Maintained for visual impact in gallery */
+        object-fit: cover;
     }
 }
 
+/* Tablets & Smaller Laptops (Max 991px) */
 @media (max-width: 991px) {
+    /* Home section adjustments */
     .home {
         background-position: center;
-        padding-top: 100px;
+        padding-top: 100px; /* Adjust padding to clear fixed header */
     }
     .home h1 {
-        font-size: 48px;
+        font-size: 48px; /* Reduced font size for main heading */
     }
     .home h2 {
-        font-size: 24px;
+        font-size: 24px; /* Reduced font size for subheading */
     }
+
+    /* All main content sections: stack into a single column */
     .about .content,
     .service .content,
     .start-today .content,
     .schedule .content,
     .price-package .content,
-    .contact .content {
-        flex-wrap: wrap;
-        gap: 10px;
+    .contact .content,
+    .classes .content,
+    .gallery .content {
+        flex-wrap: wrap; /* Ensure items wrap to new lines */
+        gap: 15px; /* Slightly increased gap for better spacing */
         justify-content: center;
     }
+
+    /* All content boxes take full width */
     .about .content .box,
     .service .content .box,
     .start-today .content .box,
     .schedule .content .box,
     .price-package .content .box,
-    .contact .content .box {
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
-    .classes .content .box {
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
+    .contact .content .box,
+    .classes .content .box,
     .gallery .content .box {
-        flex: 0 0 100%;
+        flex: 0 0 100%; /* Full width for single column layout */
         max-width: 100%;
+        padding: 10px; /* Reduced padding for tighter mobile layout */
     }
+
+    /* Gallery: display only first 2 images */
     .gallery .content .box:nth-child(n+3) {
         display: none;
     }
+
+    /* Adjusted fixed heights for images on tablets/smaller laptops */
     .gallery .content .box img {
-        max-height: 300px;
+        height: 280px; /* Adjusted fixed height for gallery on smaller screens */
+        object-fit: cover;
     }
+
+    /* Allow inner content boxes to adjust height based on content */
     .about .content .box .inner,
     .price-package .content .box .inner,
     .classes .content .class-items .item {
-        min-height: 400px;
+        min-height: auto; /* Allow height to adjust dynamically */
     }
+
+    /* Adjusted fixed heights for various images on tablets/smaller laptops */
     .about .content .box .inner .img img,
     .price-package .content .box .inner .img img,
     .classes .content .img img,
     .classes .content .class-items .item .item-img img,
     .start-today .content .img img,
     .schedule .content .text img {
-        max-height: 250px;
+        height: 220px; /* Further adjusted fixed height */
+        object-fit: cover;
+    }
+
+    /* Adjust padding for text within class items */
+    .classes .content .class-items .item .item-text {
+        padding: 15px;
+    }
+
+    /* Adjust padding for contact form and text boxes */
+    .contact .content .form,
+    .contact .content .text {
+        padding: 20px;
     }
 }
 
+/* Larger Mobile Devices & Small Tablets (Max 767px) */
 @media (max-width: 767px) {
+    /* Home section heading adjustments */
     .home h1 {
         font-size: 36px;
     }
     .home h2 {
         font-size: 20px;
     }
+
+    /* Class items: stack image and text vertically */
     .classes .content .class-items .item {
-        flex-wrap: wrap;
+        flex-wrap: wrap; /* Force wrapping */
     }
     .classes .content .class-items .item .item-text,
     .classes .content .class-items .item .item-img {
-        flex: 0 0 100%;
+        flex: 0 0 100%; /* Both take full width */
         max-width: 100%;
+        padding: 0; /* Remove internal padding to prevent double padding issues */
     }
+    .classes .content .class-items .item .item-img {
+        border-radius: 8px 8px 0 0; /* Round top corners when image is stacked on top */
+    }
+    .classes .content .class-items .item .item-text {
+        border-radius: 0 0 8px 8px; /* Round bottom corners when text is stacked below */
+        padding-top: 15px; /* Add some top padding to separate from image */
+    }
+
+    /* Further reduce image heights for class items */
     .classes .content .class-items .item .item-img img {
-        max-height: 250px;
+        height: 200px;
+        object-fit: cover;
     }
+
+    /* Contact map iframe height adjustment */
     .contact .content .text .map iframe {
         height: 300px;
     }
+
+    /* About inner box minimum height adjustment */
     .about .content .box .inner {
-        min-height: 350px;
+        min-height: auto; /* Allow height to adjust to content */
+    }
+
+    /* Further reduce image heights for About and Price Package sections */
+    .about .content .box .inner .img img,
+    .price-package .content .box .inner .img img {
+        height: 180px;
+        object-fit: cover;
+    }
+
+    /* Adjust padding for text within price package boxes */
+    .price-package .content .box .inner .text {
+        padding: 15px;
     }
 }
 
+/* Small Mobile Devices (Max 550px) */
 @media (max-width: 550px) {
+    /* Home section heading adjustments for very small screens */
     .home h1 {
         font-size: 28px;
         padding: 15px;
@@ -1296,15 +1476,45 @@ header .ham-burger.active span:nth-child(2) {
         font-size: 18px;
         padding: 0 15px 15px;
     }
+
+    /* "Go Down" icon adjustments */
     .home .go-down {
         width: 24px;
         height: 36px;
-        transform: translateX(-50%);
+        transform: translateX(-50%); /* Ensure it's centered */
     }
     .home .go-down:hover {
-        transform: translateX(-50%) scale(1.1) rotate(5deg);
+        transform: translateX(-50%) scale(1.1) rotate(0deg); /* No rotation on small screens for simpler effect */
     }
+
+    /* Gallery image height for very small screens */
     .gallery .content .box img {
-        max-height: 250px;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    /* Header logo font size adjustment */
+    header .logo a {
+        font-size: 28px;
+    }
+
+    /* Navigation menu width adjustment */
+    header .nav {
+        width: 240px; /* Slightly narrower nav panel */
+    }
+    header .nav ul li a {
+        font-size: 22px; /* Smaller nav links for better fit */
+    }
+
+    /* Price package heading adjustment */
+    .price-package .content .box .inner .text h3 {
+        font-size: 24px;
+    }
+
+    /* Contact form elements take full width */
+    .contact .content .form input,
+    .contact .content .form textarea,
+    .contact .content .form button {
+        max-width: 100%;
     }
 }
