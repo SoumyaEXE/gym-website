@@ -1267,48 +1267,11 @@ header .ham-burger.active span:nth-child(2) {
     color: #FFB300;
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
-
-/* Extra Large Screens (1441px and above) */
-@media (min-width: 1441px) {
-    .about .content,
-    .service .content,
-    .start-today .content,
-    .schedule .content,
-    .price-package .content,
-    .gallery .content,
-    .classes .content {
-        gap: 24px;
-        justify-content: center;
-        max-width: 1400px;
-        margin: 0 auto;
-    }
-
-    /* About and Price Package: 4 columns on very large screens */
-    .about .content .box,
-    .price-package .content .box {
-        flex: 0 0 calc(25% - 18px);
-        max-width: calc(25% - 18px);
-    }
-
-    /* Other sections: 3 columns */
-    .service .content .box,
-    .start-today .content .box,
-    .schedule .content .box,
-    .classes .content .box,
-    .gallery .content .box {
-        flex: 0 0 calc(33.33% - 16px);
-        max-width: calc(33.33% - 16px);
-    }
-
-    .gallery .content .box img {
-        height: 400px;
-        object-fit: cover;
-    }
-}
+/* Responsive */
 
 /* Large Desktops & Laptops (1024px to 1440px) */
 @media (min-width: 1024px) and (max-width: 1440px) {
+    /* Ensure consistent spacing and centering for content sections */
     .about .content,
     .service .content,
     .start-today .content,
@@ -1316,142 +1279,81 @@ header .ham-burger.active span:nth-child(2) {
     .price-package .content,
     .gallery .content,
     .classes .content {
-        gap: 20px;
-        justify-content: center;
-        padding: 0 20px;
+        gap: 20px; /* Consistent gap between items */
+        justify-content: center; /* Center items within the container */
     }
 
-    /* About and Price Package: 3 columns */
+    /* About and Price Package sections: 3 columns */
     .about .content .box,
     .price-package .content .box {
-        flex: 0 0 calc(33.33% - 14px);
-        max-width: calc(33.33% - 14px);
+        flex: 0 0 calc(33.33% - 13.33px); /* 3 columns with 20px gap (20px * 2 gaps / 3 boxes = 13.33px per box reduction) */
+        max-width: calc(33.33% - 13.33px);
     }
 
-    /* Other sections: 2 columns */
+    /* Service, Start Today, Schedule, Classes, Gallery sections: 2 columns */
     .service .content .box,
     .start-today .content .box,
     .schedule .content .box,
     .classes .content .box,
     .gallery .content .box {
-        flex: 0 0 calc(50% - 10px);
+        flex: 0 0 calc(50% - 10px); /* 2 columns with 20px gap (20px * 1 gap / 2 boxes = 10px per box reduction) */
         max-width: calc(50% - 10px);
     }
 
+    /* Consistent minimum heights for inner content boxes */
     .about .content .box .inner,
     .price-package .content .box .inner,
     .classes .content .class-items .item {
-        min-height: 420px;
+        min-height: 450px;
     }
 
+    /* Adjusted fixed heights for various images on larger screens */
     .about .content .box .inner .img img,
     .price-package .content .box .inner .img img,
     .classes .content .img img,
     .classes .content .class-items .item .item-img img,
     .start-today .content .img img,
     .schedule .content .text img {
-        height: 280px;
-        object-fit: cover;
+        height: 280px; /* Slightly reduced for this range, ensuring consistency */
+        object-fit: cover; /* Ensure images cover the area without distortion */
     }
 
+    /* Gallery images specific height */
     .gallery .content .box img {
-        height: 350px;
+        height: 350px; /* Maintained for visual impact in gallery */
         object-fit: cover;
     }
 }
 
-/* Medium Tablets (768px to 1023px) */
-@media (min-width: 768px) and (max-width: 1023px) {
+/* Tablets & Smaller Laptops (Max 991px) */
+@media (max-width: 991px) {
+    /* Home section adjustments */
     .home {
         background-position: center;
-        padding-top: 80px;
+        padding-top: 100px; /* Adjust padding to clear fixed header */
     }
-
     .home h1 {
-        font-size: 52px;
+        font-size: 48px; /* Reduced font size for main heading */
     }
-
     .home h2 {
-        font-size: 26px;
+        font-size: 24px; /* Reduced font size for subheading */
     }
 
+    /* All main content sections: stack into a single column */
     .about .content,
     .service .content,
     .start-today .content,
     .schedule .content,
     .price-package .content,
-    .gallery .content,
-    .classes .content {
-        gap: 18px;
+    .contact .content,
+    .classes .content,
+    .gallery .content {
+        flex-wrap: wrap; /* Ensure items wrap to new lines */
+        gap: 15px; /* Slightly increased gap for better spacing */
         justify-content: center;
-        padding: 0 15px;
     }
 
-    /* All sections: 2 columns */
-    .about .content .box,
-    .service .content .box,
-    .start-today .content .box,
-    .schedule .content .box,
-    .price-package .content .box,
-    .classes .content .box,
-    .gallery .content .box {
-        flex: 0 0 calc(50% - 9px);
-        max-width: calc(50% - 9px);
-        padding: 8px;
-    }
-
-    .about .content .box .inner,
-    .price-package .content .box .inner,
-    .classes .content .class-items .item {
-        min-height: auto;
-    }
-
-    .about .content .box .inner .img img,
-    .price-package .content .box .inner .img img,
-    .classes .content .img img,
-    .classes .content .class-items .item .item-img img,
-    .start-today .content .img img,
-    .schedule .content .text img {
-        height: 240px;
-        object-fit: cover;
-    }
-
-    .gallery .content .box img {
-        height: 300px;
-        object-fit: cover;
-    }
-}
-
-/* Small Tablets & Large Mobile (481px to 767px) */
-@media (min-width: 481px) and (max-width: 767px) {
-    .home {
-        background-position: center;
-        padding-top: 90px;
-    }
-
-    .home h1 {
-        font-size: 42px;
-        line-height: 1.2;
-    }
-
-    .home h2 {
-        font-size: 22px;
-        line-height: 1.3;
-    }
-
-    .about .content,
-    .service .content,
-    .start-today .content,
-    .schedule .content,
-    .price-package .content,
-    .contact .content,
-    .classes .content,
-    .gallery .content {
-        flex-direction: column;
-        gap: 16px;
-        padding: 0 12px;
-    }
-
+    /* All content boxes take full width */
     .about .content .box,
     .service .content .box,
     .start-today .content .box,
@@ -1460,369 +1362,159 @@ header .ham-burger.active span:nth-child(2) {
     .contact .content .box,
     .classes .content .box,
     .gallery .content .box {
-        flex: 0 0 100%;
+        flex: 0 0 100%; /* Full width for single column layout */
         max-width: 100%;
-        padding: 8px;
+        padding: 10px; /* Reduced padding for tighter mobile layout */
     }
 
-    /* Show only first 3 images in gallery */
-    .gallery .content .box:nth-child(n+4) {
-        display: none;
-    }
-
-    .gallery .content .box img {
-        height: 250px;
-        object-fit: cover;
-    }
-
-    .about .content .box .inner,
-    .price-package .content .box .inner,
-    .classes .content .class-items .item {
-        min-height: auto;
-    }
-
-    .about .content .box .inner .img img,
-    .price-package .content .box .inner .img img,
-    .classes .content .img img,
-    .classes .content .class-items .item .item-img img,
-    .start-today .content .img img,
-    .schedule .content .text img {
-        height: 200px;
-        object-fit: cover;
-    }
-
-    .classes .content .class-items .item .item-text {
-        padding: 16px;
-    }
-
-    .contact .content .form,
-    .contact .content .text {
-        padding: 18px;
-    }
-
-    .contact .content .text .map iframe {
-        height: 280px;
-    }
-}
-
-/* Standard Mobile Devices (376px to 480px) */
-@media (min-width: 376px) and (max-width: 480px) {
-    .home {
-        padding-top: 80px;
-    }
-
-    .home h1 {
-        font-size: 36px;
-        padding: 12px;
-        line-height: 1.2;
-    }
-
-    .home h2 {
-        font-size: 20px;
-        padding: 0 12px 12px;
-        line-height: 1.3;
-    }
-
-    .about .content,
-    .service .content,
-    .start-today .content,
-    .schedule .content,
-    .price-package .content,
-    .contact .content,
-    .classes .content,
-    .gallery .content {
-        gap: 14px;
-        padding: 0 10px;
-    }
-
-    .about .content .box,
-    .service .content .box,
-    .start-today .content .box,
-    .schedule .content .box,
-    .price-package .content .box,
-    .contact .content .box,
-    .classes .content .box,
-    .gallery .content .box {
-        padding: 6px;
-        margin-bottom: 8px;
-    }
-
-    /* Gallery: show only first 2 images */
+    /* Gallery: display only first 2 images */
     .gallery .content .box:nth-child(n+3) {
         display: none;
     }
 
+    /* Adjusted fixed heights for images on tablets/smaller laptops */
+    .gallery .content .box img {
+        height: 280px; /* Adjusted fixed height for gallery on smaller screens */
+        object-fit: cover;
+    }
+
+    /* Allow inner content boxes to adjust height based on content */
+    .about .content .box .inner,
+    .price-package .content .box .inner,
     .classes .content .class-items .item {
-        flex-direction: column;
-        border-radius: 12px;
-        overflow: hidden;
+        min-height: auto; /* Allow height to adjust dynamically */
     }
 
-    .classes .content .class-items .item .item-text,
-    .classes .content .class-items .item .item-img {
-        flex: 0 0 100%;
-        max-width: 100%;
-        padding: 0;
-    }
-
-    .classes .content .class-items .item .item-img {
-        border-radius: 12px 12px 0 0;
-    }
-
-    .classes .content .class-items .item .item-text {
-        border-radius: 0 0 12px 12px;
-        padding: 14px;
-    }
-
-    .classes .content .class-items .item .item-img img {
-        height: 180px;
-        object-fit: cover;
-        width: 100%;
-    }
-
+    /* Adjusted fixed heights for various images on tablets/smaller laptops */
     .about .content .box .inner .img img,
-    .price-package .content .box .inner .img img {
-        height: 160px;
+    .price-package .content .box .inner .img img,
+    .classes .content .img img,
+    .classes .content .class-items .item .item-img img,
+    .start-today .content .img img,
+    .schedule .content .text img {
+        height: 220px; /* Further adjusted fixed height */
         object-fit: cover;
     }
 
-    .gallery .content .box img {
-        height: 220px;
-        object-fit: cover;
-    }
-
-    .price-package .content .box .inner .text {
-        padding: 14px;
-    }
-
-    .contact .content .text .map iframe {
-        height: 250px;
-    }
-
-    header .logo a {
-        font-size: 26px;
-    }
-
-    header .nav {
-        width: 250px;
-    }
-
-    header .nav ul li a {
-        font-size: 20px;
-        padding: 12px 20px;
-    }
-}
-
-/* Small Mobile Devices (320px to 375px) */
-@media (min-width: 320px) and (max-width: 375px) {
-    .home {
-        padding-top: 70px;
-    }
-
-    .home h1 {
-        font-size: 28px;
-        padding: 10px;
-        line-height: 1.1;
-    }
-
-    .home h2 {
-        font-size: 18px;
-        padding: 0 10px 10px;
-        line-height: 1.2;
-    }
-
-    .home .go-down {
-        width: 20px;
-        height: 32px;
-        transform: translateX(-50%);
-    }
-
-    .home .go-down:hover {
-        transform: translateX(-50%) scale(1.05);
-    }
-
-    .about .content,
-    .service .content,
-    .start-today .content,
-    .schedule .content,
-    .price-package .content,
-    .contact .content,
-    .classes .content,
-    .gallery .content {
-        gap: 12px;
-        padding: 0 8px;
-    }
-
-    .about .content .box,
-    .service .content .box,
-    .start-today .content .box,
-    .schedule .content .box,
-    .price-package .content .box,
-    .contact .content .box,
-    .classes .content .box,
-    .gallery .content .box {
-        padding: 4px;
-        margin-bottom: 6px;
-    }
-
-    .gallery .content .box img {
-        height: 180px;
-        object-fit: cover;
-    }
-
-    .about .content .box .inner .img img,
-    .price-package .content .box .inner .img img {
-        height: 140px;
-        object-fit: cover;
-    }
-
-    .classes .content .class-items .item .item-img img {
-        height: 160px;
-    }
-
+    /* Adjust padding for text within class items */
     .classes .content .class-items .item .item-text {
-        padding: 12px;
-        font-size: 14px;
+        padding: 15px;
     }
 
-    .price-package .content .box .inner .text h3 {
-        font-size: 22px;
-    }
-
-    .price-package .content .box .inner .text {
-        padding: 12px;
-    }
-
+    /* Adjust padding for contact form and text boxes */
     .contact .content .form,
     .contact .content .text {
-        padding: 12px;
-    }
-
-    .contact .content .form input,
-    .contact .content .form textarea,
-    .contact .content .form button {
-        max-width: 100%;
-        font-size: 14px;
-    }
-
-    .contact .content .text .map iframe {
-        height: 200px;
-    }
-
-    header .logo a {
-        font-size: 24px;
-    }
-
-    header .nav {
-        width: 220px;
-    }
-
-    header .nav ul li a {
-        font-size: 18px;
-        padding: 10px 16px;
+        padding: 20px;
     }
 }
 
-/* Extra Small Mobile Devices (max 319px) */
-@media (max-width: 319px) {
-    .home {
-        padding-top: 60px;
-    }
-
+/* Larger Mobile Devices & Small Tablets (Max 767px) */
+@media (max-width: 767px) {
+    /* Home section heading adjustments */
     .home h1 {
-        font-size: 24px;
-        padding: 8px;
-        line-height: 1.1;
+        font-size: 36px;
     }
-
     .home h2 {
-        font-size: 16px;
-        padding: 0 8px 8px;
-        line-height: 1.2;
-    }
-
-    .about .content,
-    .service .content,
-    .start-today .content,
-    .schedule .content,
-    .price-package .content,
-    .contact .content,
-    .classes .content,
-    .gallery .content {
-        gap: 10px;
-        padding: 0 6px;
-    }
-
-    .gallery .content .box img {
-        height: 160px;
-    }
-
-    .about .content .box .inner .img img,
-    .price-package .content .box .inner .img img {
-        height: 120px;
-    }
-
-    .classes .content .class-items .item .item-img img {
-        height: 140px;
-    }
-
-    .classes .content .class-items .item .item-text {
-        padding: 10px;
-        font-size: 13px;
-    }
-
-    .price-package .content .box .inner .text h3 {
         font-size: 20px;
     }
 
+    /* Class items: stack image and text vertically */
+    .classes .content .class-items .item {
+        flex-wrap: wrap; /* Force wrapping */
+    }
+    .classes .content .class-items .item .item-text,
+    .classes .content .class-items .item .item-img {
+        flex: 0 0 100%; /* Both take full width */
+        max-width: 100%;
+        padding: 0; /* Remove internal padding to prevent double padding issues */
+    }
+    .classes .content .class-items .item .item-img {
+        border-radius: 8px 8px 0 0; /* Round top corners when image is stacked on top */
+    }
+    .classes .content .class-items .item .item-text {
+        border-radius: 0 0 8px 8px; /* Round bottom corners when text is stacked below */
+        padding-top: 15px; /* Add some top padding to separate from image */
+    }
+
+    /* Further reduce image heights for class items */
+    .classes .content .class-items .item .item-img img {
+        height: 200px;
+        object-fit: cover;
+    }
+
+    /* Contact map iframe height adjustment */
     .contact .content .text .map iframe {
+        height: 300px;
+    }
+
+    /* About inner box minimum height adjustment */
+    .about .content .box .inner {
+        min-height: auto; /* Allow height to adjust to content */
+    }
+
+    /* Further reduce image heights for About and Price Package sections */
+    .about .content .box .inner .img img,
+    .price-package .content .box .inner .img img {
         height: 180px;
+        object-fit: cover;
     }
 
-    header .logo a {
-        font-size: 22px;
-    }
-
-    header .nav {
-        width: 200px;
-    }
-
-    header .nav ul li a {
-        font-size: 16px;
-        padding: 8px 14px;
+    /* Adjust padding for text within price package boxes */
+    .price-package .content .box .inner .text {
+        padding: 15px;
     }
 }
 
-/* Universal Mobile Improvements */
-@media (max-width: 767px) {
-    /* Ensure touch-friendly sizing */
+/* Small Mobile Devices (Max 550px) */
+@media (max-width: 550px) {
+    /* Home section heading adjustments for very small screens */
+    .home h1 {
+        font-size: 28px;
+        padding: 15px;
+    }
+    .home h2 {
+        font-size: 18px;
+        padding: 0 15px 15px;
+    }
+
+    /* "Go Down" icon adjustments */
+    .home .go-down {
+        width: 24px;
+        height: 36px;
+        transform: translateX(-50%); /* Ensure it's centered */
+    }
+    .home .go-down:hover {
+        transform: translateX(-50%) scale(1.1) rotate(0deg); /* No rotation on small screens for simpler effect */
+    }
+
+    /* Gallery image height for very small screens */
+    .gallery .content .box img {
+        height: 200px;
+        object-fit: cover;
+    }
+
+    /* Header logo font size adjustment */
+    header .logo a {
+        font-size: 28px;
+    }
+
+    /* Navigation menu width adjustment */
+    header .nav {
+        width: 240px; /* Slightly narrower nav panel */
+    }
+    header .nav ul li a {
+        font-size: 22px; /* Smaller nav links for better fit */
+    }
+
+    /* Price package heading adjustment */
+    .price-package .content .box .inner .text h3 {
+        font-size: 24px;
+    }
+
+    /* Contact form elements take full width */
     .contact .content .form input,
     .contact .content .form textarea,
     .contact .content .form button {
-        min-height: 44px; /* Apple's recommended touch target size */
-    }
-
-    /* Improve text readability on mobile */
-    body {
-        -webkit-text-size-adjust: 100%;
-        text-size-adjust: 100%;
-    }
-
-    /* Prevent horizontal scrolling */
-    * {
         max-width: 100%;
-        box-sizing: border-box;
-    }
-
-    /* Smooth scrolling for better UX */
-    html {
-        scroll-behavior: smooth;
-    }
-
-    /* Better button spacing on mobile */
-    button, .btn {
-        margin: 8px 0;
-        padding: 12px 20px;
-        min-height: 44px;
     }
 }
