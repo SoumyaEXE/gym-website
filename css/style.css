@@ -30,11 +30,11 @@ header {
     top: 0;
     width: 100%;
     z-index: 10;
-    background: rgba(0, 0, 0, 0.7) !important; /* Semi-transparent for glassmorphism */
+    background: rgba(0, 0, 0, 0.7) !important;
     padding: 15px 0;
-    backdrop-filter: blur(10px); /* Glassmorphism effect */
-    -webkit-backdrop-filter: blur(10px); /* For Safari */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 header .container {
@@ -49,12 +49,14 @@ header .logo a {
     color: #FFFFFF;
     font-weight: 700;
     letter-spacing: 1px;
-    transition: color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Modern cubic-bezier transition */
+    transition: color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), text-shadow 0.4s ease;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 header .logo a:hover {
     color: #FFB300;
-    transform: scale(1.08); /* Slightly larger scale */
+    transform: scale(1.08);
+    text-shadow: 0 0 20px rgba(255, 179, 0, 0.8), 0 0 30px rgba(255, 179, 0, 0.5);
 }
 
 header .logo a span {
@@ -63,7 +65,7 @@ header .logo a span {
 
 header .nav {
     position: fixed;
-    background: rgba(255, 179, 0, 0.9) !important; /* Semi-transparent for glassmorphism */
+    background: rgba(255, 179, 0, 0.9) !important;
     width: 280px;
     top: 0;
     right: 0;
@@ -71,19 +73,19 @@ header .nav {
     z-index: 999;
     padding: 100px 0 15px;
     transform: translateX(100%);
-    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Springy transition */
+    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     opacity: 1 !important;
-    backdrop-filter: blur(8px); /* Glassmorphism effect */
-    -webkit-backdrop-filter: blur(8px); /* For Safari */
-    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.2); /* Shadow on the side */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.2);
 }
 
 header .nav.open {
     transform: translateX(0);
-    background: rgba(255, 179, 0, 0.9) !important; /* Consistency */
+    background: rgba(255, 179, 0, 0.9) !important;
     opacity: 1 !important;
-    backdrop-filter: blur(8px); /* Consistency */
-    -webkit-backdrop-filter: blur(8px); /* For Safari */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 header .nav ul {
@@ -110,8 +112,8 @@ header .nav ul li a {
     display: block;
     position: relative;
     padding: 12px 30px;
-    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smoother transitions */
-    overflow: hidden; /* For pseudo-element animation */
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    overflow: hidden;
     text-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);
 }
 
@@ -121,8 +123,8 @@ header .nav ul li a.animated.bounceInUp {
 }
 
 header .nav ul li a:hover {
-    color: #FFFFFF !important; /* Color change on hover */
-    transform: translateX(8px); /* Subtle slide */
+    color: #FFFFFF !important;
+    transform: translateX(8px);
 }
 
 header .nav ul li a::before {
@@ -132,23 +134,23 @@ header .nav ul li a::before {
     top: 0;
     height: 100%;
     width: 100%;
-    background: rgba(255, 255, 255, 0.2); /* Semi-transparent white for hover */
+    background: rgba(255, 255, 255, 0.2);
     z-index: -1;
-    transform: translateX(-100%); /* Start off-screen */
-    transition: transform 0.4s ease-out; /* Slide in transition */
+    transform: translateX(-100%);
+    transition: transform 0.4s ease-out;
 }
 
 header .nav ul li a.active::before,
 header .nav ul li a:hover::before {
-    transform: translateX(0); /* Slide in on hover/active */
+    transform: translateX(0);
 }
 
 header .ham-burger {
     display: inline-block;
     position: relative;
     z-index: 1000;
-    cursor: pointer; /* Indicate clickability */
-    padding: 5px; /* Increase click area */
+    cursor: pointer;
+    padding: 5px;
 }
 
 header .ham-burger span {
@@ -157,7 +159,7 @@ header .ham-burger span {
     display: block;
     background-color: #FFFFFF;
     width: 30px;
-    transition: transform 0.4s ease-in-out, background-color 0.3s ease-in-out; /* Consistent transitions */
+    transition: transform 0.4s ease-in-out, background-color 0.3s ease-in-out;
 }
 
 header .ham-burger.active span {
@@ -191,7 +193,7 @@ header .ham-burger.active span:nth-child(2) {
     align-items: center;
     justify-content: center;
     position: relative;
-    overflow: hidden; /* Ensure content doesn't spill */
+    overflow: hidden;
 }
 
 .home .go-down {
@@ -205,20 +207,20 @@ header .ham-burger.active span:nth-child(2) {
     left: 50%;
     transform: translateX(-50%);
     transition: border-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    display: flex; /* For vertical centering of icon */
+    display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .home .go-down:hover {
     border-color: #FFB300;
-    transform: translateX(-50%) scale(1.1); /* Simplified hover */
-    box-shadow: 0 0 15px rgba(255, 179, 0, 0.5); /* Glowing effect */
+    transform: translateX(-50%) scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 179, 0, 0.5);
 }
 
 .home .go-down .fa {
     color: #FFFFFF;
-    animation: goDown 1.5s infinite cubic-bezier(0.42, 0, 0.58, 1); /* Slower, smoother animation */
+    animation: goDown 1.5s infinite cubic-bezier(0.42, 0, 0.58, 1);
 }
 
 @keyframes goDown {
@@ -233,15 +235,15 @@ header .ham-burger.active span:nth-child(2) {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: rgba(0, 0, 0, 0.4); /* Subtle glassmorphism background */
-    backdrop-filter: blur(5px); /* Glassmorphism effect */
-    -webkit-backdrop-filter: blur(5px); /* For Safari */
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     border-radius: 15px;
     padding: 30px;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Stronger shadow */
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     border: 1px solid rgba(255, 255, 255, 0.18);
     transform: translateY(0);
-    animation: fadeInUp 1.2s ease-out forwards; /* Initial animation for container */
+    animation: fadeInUp 1.2s ease-out forwards;
 }
 
 @keyframes fadeInUp {
@@ -255,7 +257,6 @@ header .ham-burger.active span:nth-child(2) {
     }
 }
 
-
 .home h1 {
     color: #FFFFFF;
     font-size: 80px;
@@ -263,12 +264,13 @@ header .ham-burger.active span:nth-child(2) {
     text-transform: uppercase;
     margin: 0 0 10px;
     letter-spacing: 2px;
-    text-shadow: 0 6px 15px rgba(0, 0, 0, 0.6); /* Enhanced text shadow */
+    text-shadow: 0 6px 15px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 255, 255, 0.4), 0 0 50px rgba(255, 179, 0, 0.3);
     padding: 20px;
 }
 
 .home h1 span {
     color: #FFB300;
+    text-shadow: 0 0 20px rgba(255, 179, 0, 0.8), 0 0 40px rgba(255, 179, 0, 0.5), 0 0 60px rgba(255, 179, 0, 0.3);
 }
 
 .home h2 {
@@ -277,7 +279,7 @@ header .ham-burger.active span:nth-child(2) {
     font-weight: 500;
     margin: 0;
     padding: 0 20px 20px;
-    text-shadow: 0 6px 15px rgba(0, 0, 0, 0.6); /* Enhanced text shadow */
+    text-shadow: 0 6px 15px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 255, 255, 0.3);
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -295,7 +297,7 @@ header .ham-burger.active span:nth-child(2) {
 }
 
 .about .content .box {
-    flex: 0 0 calc(33.33% - 20px); /* Adjust for gap */
+    flex: 0 0 calc(33.33% - 20px);
     max-width: calc(33.33% - 20px);
     padding: 15px;
 }
@@ -303,40 +305,41 @@ header .ham-burger.active span:nth-child(2) {
 .about .content .box .inner {
     background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
     border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25), inset 0 0 12px rgba(255, 255, 255, 0.15); /* Stronger shadow, better inset */
-    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out; /* Modern transitions */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25), inset 0 0 12px rgba(255, 255, 255, 0.15), 0 0 30px rgba(255, 179, 0, 0.1);
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
     min-height: 450px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow: hidden; /* For image scaling */
+    overflow: hidden;
 }
 
 .about .content .box .inner:hover {
-    transform: translateY(-15px) scale(1.03); /* More pronounced lift and scale */
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 40px rgba(255, 179, 0, 0.3), inset 0 0 15px rgba(255, 255, 255, 0.2);
 }
 
 .about .content .box:nth-child(2) .inner {
     background: linear-gradient(135deg, #FFB300 0%, #FFC107 100%);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25), inset 0 0 12px rgba(255, 255, 255, 0.15), 0 0 35px rgba(255, 179, 0, 0.4);
 }
 
 .about .content .box .inner .img {
     width: 100%;
     text-align: center;
-    overflow: hidden; /* Clip image overflow on scale */
-    border-radius: 12px 12px 0 0; /* Match container border-radius */
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
 }
 
 .about .content .box .inner .img img {
     width: 100%;
-    height: 250px; /* Fixed height for consistency */
-    object-fit: cover; /* Cover the area */
-    transition: transform 0.5s ease-in-out; /* Slower, smoother zoom */
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.5s ease-in-out;
 }
 
 .about .content .box .inner:hover .img img {
-    transform: scale(1.15); /* More zoom on hover */
+    transform: scale(1.15);
 }
 
 .about .content .box .inner .text {
@@ -377,7 +380,7 @@ header .ham-burger.active span:nth-child(2) {
 }
 
 .service .content .box {
-    flex: 0 0 calc(50% - 20px); /* Adjust for gap */
+    flex: 0 0 calc(50% - 20px);
     max-width: calc(50% - 20px);
     padding: 15px;
 }
@@ -389,6 +392,7 @@ header .ham-burger.active span:nth-child(2) {
     padding: 0 0 20px;
     letter-spacing: 1px;
     text-align: center;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .service .content .text p {
@@ -406,55 +410,89 @@ header .ham-burger.active span:nth-child(2) {
     background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
     color: #FFFFFF;
     text-decoration: none;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border: 1px solid transparent;
     border-radius: 8px;
     cursor: pointer;
     font-weight: 600;
-    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Modern transition */
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     margin: 0 auto;
-    display: block;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 0 15px rgba(255, 179, 0, 0.1);
 }
 
 .service .content .text .btn:hover {
     background: transparent;
     border-color: #FFFFFF;
     color: #FFFFFF;
-    transform: scale(1.08) translateY(-3px); /* Subtle lift and scale */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transform: scale(1.08) translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 25px rgba(255, 255, 255, 0.3);
+}
+
+.service .content .text .btn .fa {
+    margin-right: 10px;
+    font-size: 18px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.service .content .text .btn:hover .fa {
+    transform: scale(1.2);
 }
 
 .service .content .accordian-container {
     margin-bottom: 10px;
     border-radius: 8px;
-    overflow: hidden; /* Ensure content is clipped */
+    overflow: hidden;
     transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-    background: rgba(255, 255, 255, 0.15); /* Light glassmorphism */
+    background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), 0 0 20px rgba(255, 179, 0, 0.1);
 }
 
 .service .content .accordian-container:hover {
-    transform: translateY(-8px); /* More pronounced lift */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2), 0 0 30px rgba(255, 179, 0, 0.2);
 }
 
 .service .content .accordian-container .head {
-    background: rgba(0, 0, 0, 0.3); /* Darker semi-transparent */
+    background: rgba(0, 0, 0, 0.3);
     position: relative;
     padding: 15px 20px;
     cursor: pointer;
     transition: background 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.service .content .accordian-container .head .fa {
-    position: absolute;
-    right: 15px;
-    top: 50%; /* Center vertically */
-    transform: translateY(-50%); /* Adjust for accurate centering */
+.service .content .accordian-container .head h4 {
+    font-size: 22px;
+    margin: 0;
+    font-weight: 600;
+    color: #FFFFFF !important;
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+}
+
+.service .content .accordian-container .head h4 .fa {
+    margin-right: 10px;
+    font-size: 18px;
+    color: #FFB300;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.service .content .accordian-container:hover .head h4 .fa {
+    color: #FFFFFF;
+    transform: scale(1.2);
+}
+
+.service .content .accordian-container .head .fa-angle-down,
+.service .content .accordian-container .head .fa-angle-up {
+    font-size: 18px;
     color: #FFFFFF;
     height: 30px;
     width: 30px;
@@ -464,17 +502,9 @@ header .ham-burger.active span:nth-child(2) {
     transition: transform 0.3s ease-in-out;
 }
 
-.service .content .accordian-container.active .head .fa {
-    transform: translateY(-50%) rotate(180deg); /* Rotate around center */
-}
-
-.service .content .accordian-container .head h4 {
-    font-size: 22px;
-    margin: 0;
-    padding: 0;
-    font-weight: 600;
-    color: #FFFFFF !important;
-    text-transform: capitalize;
+.service .content .accordian-container.active .head .fa-angle-down,
+.service .content .accordian-container.active .head .fa-angle-up {
+    transform: rotate(180deg);
 }
 
 .service .content .accordian-container.active .head {
@@ -484,12 +514,12 @@ header .ham-burger.active span:nth-child(2) {
 .service .content .accordian-container .body {
     display: none;
     padding: 20px;
-    background: rgba(0, 0, 0, 0.8); /* Darker background for expanded content */
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+    background: rgba(0, 0, 0, 0.8);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .service .content .accordian-container:nth-child(1) .body {
-    display: block; /* Keep first one open by default if needed */
+    display: block;
 }
 
 .service .content .accordian-container .body p {
@@ -514,7 +544,7 @@ header .ham-burger.active span:nth-child(2) {
 }
 
 .classes .content .box {
-    flex: 0 0 calc(50% - 20px); /* Adjust for gap */
+    flex: 0 0 calc(50% - 20px);
     max-width: calc(50% - 20px);
     padding: 15px;
 }
@@ -525,15 +555,15 @@ header .ham-burger.active span:nth-child(2) {
 
 .classes .content .img img {
     width: 100%;
-    height: 300px; /* Consistent height */
-    object-fit: cover; /* Cover the area */
+    height: 300px;
+    object-fit: cover;
     border-radius: 8px;
     transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .classes .content .img img:hover {
-    transform: scale(1.05); /* Gentle zoom */
+    transform: scale(1.05);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
@@ -562,16 +592,16 @@ header .ham-burger.active span:nth-child(2) {
     margin-bottom: 30px;
     display: flex;
     border-radius: 8px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25); /* Stronger shadow */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25), 0 0 25px rgba(255, 179, 0, 0.1);
     transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
     min-height: 350px;
-    overflow: hidden; /* Ensure content doesn't spill */
-    align-items: stretch; /* Ensure equal height columns */
+    overflow: hidden;
+    align-items: stretch;
 }
 
 .classes .content .class-items .item:hover {
-    transform: translateY(-10px) scale(1.01); /* Lift and subtle scale */
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    transform: translateY(-10px) scale(1.01);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35), 0 0 40px rgba(255, 179, 0, 0.2);
 }
 
 .classes .content .class-items .item:nth-child(1) {
@@ -587,7 +617,7 @@ header .ham-burger.active span:nth-child(2) {
     flex: 0 0 50%;
     max-width: 50%;
     position: relative;
-    display: flex; /* For centering content within */
+    display: flex;
     flex-direction: column;
     justify-content: center;
 }
@@ -595,18 +625,18 @@ header .ham-burger.active span:nth-child(2) {
 .classes .content .class-items .item .item-img {
     text-align: center;
     overflow: hidden;
-    border-radius: 0 8px 8px 0; /* Round corners for the image part only */
+    border-radius: 0 8px 8px 0;
 }
 
 .classes .content .class-items .item .item-img img {
     width: 100%;
-    height: 100%; /* Fill the height of the container */
-    object-fit: cover; /* Cover the area */
+    height: 100%;
+    object-fit: cover;
     transition: transform 0.5s ease-in-out;
 }
 
 .classes .content .class-items .item:hover .item-img img {
-    transform: scale(1.15); /* Zoom in on hover */
+    transform: scale(1.15);
 }
 
 .classes .content .class-items .item .item-img .price {
@@ -619,29 +649,29 @@ header .ham-burger.active span:nth-child(2) {
     text-align: center;
     line-height: 50px;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for price tag */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease-out;
 }
 
 .classes .content .class-items .item .item-img .price:hover {
-    transform: scale(1.1) rotate(5deg); /* Pop and rotate */
+    transform: scale(1.1) rotate(5deg);
 }
 
 .classes .content .class-items .item:nth-child(1) .item-img .price {
     background: #FFB300;
-    left: 15px; /* Adjust position */
-    top: 15px; /* Adjust position */
+    left: 15px;
+    top: 15px;
 }
 
 .classes .content .class-items .item:nth-child(2) .item-img .price {
     background: #000000;
-    right: 15px; /* Adjust position */
-    top: 15px; /* Adjust position */
+    right: 15px;
+    top: 15px;
 }
 
 .classes .content .class-items .item .item-text {
     text-align: left;
-    padding: 20px; /* Added padding to the text block */
+    padding: 20px;
 }
 
 .classes .content .class-items .item .item-text h4 {
@@ -674,7 +704,7 @@ header .ham-burger.active span:nth-child(2) {
     display: inline-block;
     color: #FFFFFF !important;
     font-weight: 600;
-    padding: 0; /* Remove redundant padding */
+    padding: 0;
     transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
@@ -701,28 +731,28 @@ header .ham-burger.active span:nth-child(2) {
 }
 
 .start-today .content .box {
-    flex: 0 0 calc(50% - 20px); /* Adjust for gap */
+    flex: 0 0 calc(50% - 20px);
     max-width: calc(50% - 20px);
     padding: 15px;
 }
 
 .start-today .content .img {
     text-align: center;
-    border-radius: 8px; /* Apply border-radius to the container */
-    overflow: hidden; /* Ensure image respects border-radius */
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .start-today .content .img img {
     width: 100%;
-    height: 350px; /* Fixed height for consistency */
-    object-fit: cover; /* Cover the area */
-    border-radius: 8px; /* Applied to the image too for consistency */
+    height: 350px;
+    object-fit: cover;
+    border-radius: 8px;
     transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .start-today .content .img img:hover {
-    transform: scale(1.05); /* Gentle zoom */
+    transform: scale(1.05);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
 }
 
@@ -730,7 +760,7 @@ header .ham-burger.active span:nth-child(2) {
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center content vertically */
+    justify-content: center;
 }
 
 .start-today .content .text h2 {
@@ -762,7 +792,7 @@ header .ham-burger.active span:nth-child(2) {
     font-weight: 600;
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     margin: 0 auto;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 0 20px rgba(255, 179, 0, 0.3);
 }
 
 .start-today .content .text .btn:hover {
@@ -770,7 +800,7 @@ header .ham-burger.active span:nth-child(2) {
     border-color: #FFFFFF;
     color: #FFFFFF;
     transform: scale(1.08) translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 00, 0, 0.3), 0 0 30px rgba(255, 179, 0, 0.5);
 }
 
 /* Class Schedule Section */
@@ -787,7 +817,7 @@ header .ham-burger.active span:nth-child(2) {
 }
 
 .schedule .content .box {
-    flex: 0 0 calc(50% - 20px); /* Adjust for gap */
+    flex: 0 0 calc(50% - 20px);
     max-width: calc(50% - 20px);
     padding: 15px;
 }
@@ -815,8 +845,8 @@ header .ham-burger.active span:nth-child(2) {
 
 .schedule .content .text img {
     width: 100%;
-    height: 300px; /* Fixed height for consistency */
-    object-fit: cover; /* Cover the area */
+    height: 300px;
+    object-fit: cover;
     border-radius: 8px;
     transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
@@ -831,9 +861,9 @@ header .ham-burger.active span:nth-child(2) {
     width: 100%;
     border-collapse: collapse;
     border-radius: 8px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25); /* Stronger shadow */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
     margin: 0 auto;
-    overflow: hidden; /* Ensure border-radius applies to table */
+    overflow: hidden;
 }
 
 .schedule .content .timing .table td {
@@ -865,10 +895,9 @@ header .ham-burger.active span:nth-child(2) {
 }
 
 .schedule .content .timing .table td:hover:not(.day) {
-    background-color: #f0f0f0; /* Subtle hover for regular cells */
+    background-color: #f0f0f0;
     cursor: pointer;
 }
-
 
 /* Gallery Section */
 .gallery {
@@ -884,31 +913,31 @@ header .ham-burger.active span:nth-child(2) {
 }
 
 .gallery .content .box {
-    flex: 0 0 calc(50% - 20px); /* Adjust for gap */
+    flex: 0 0 calc(50% - 20px);
     max-width: calc(50% - 20px);
     text-align: center;
-    padding: 15px; /* Add some padding around images */
+    padding: 15px;
 }
 
 .gallery .content .box:nth-child(n+5) {
-    display: none; /* Keep the display logic as is */
+    display: none;
 }
 
 .gallery .content .box img {
     width: 100%;
-    height: 350px; /* Fixed height for consistent grid */
-    object-fit: cover; /* Ensure images fill the space */
-    border-radius: 12px; /* Softer border-radius */
+    height: 350px;
+    object-fit: cover;
+    border-radius: 12px;
     filter: brightness(70%);
-    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother transition */
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
     margin: 0 auto;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Stronger initial shadow */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 25px rgba(255, 179, 0, 0.1);
 }
 
 .gallery .content .box img:hover {
     filter: brightness(100%);
-    transform: scale(1.05); /* Gentle zoom */
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45); /* More pronounced shadow on hover */
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45), 0 0 40px rgba(255, 179, 0, 0.3);
 }
 
 .gallery h2 {
@@ -918,12 +947,13 @@ header .ham-burger.active span:nth-child(2) {
     padding: 0 0 20px;
     text-align: center;
     letter-spacing: 1px;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Price Section */
 .price-package {
     padding: 100px 0;
-    background-color: #f5f5f5; /* Changed background for better contrast */
+    background-color: #f5f5f5;
 }
 
 .price-package h2 {
@@ -953,7 +983,7 @@ header .ham-burger.active span:nth-child(2) {
 }
 
 .price-package .content .box {
-    flex: 0 0 calc(33.33% - 20px); /* Adjust for gap */
+    flex: 0 0 calc(33.33% - 20px);
     max-width: calc(33.33% - 20px);
     padding: 15px;
 }
@@ -961,7 +991,7 @@ header .ham-burger.active span:nth-child(2) {
 .price-package .content .box .inner {
     background: #FFFFFF;
     border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.05); /* Softer shadow for cards */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.05), 0 0 25px rgba(255, 179, 0, 0.08);
     transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
     min-height: 500px;
     display: flex;
@@ -972,7 +1002,7 @@ header .ham-burger.active span:nth-child(2) {
 
 .price-package .content .box .inner:hover {
     transform: translateY(-15px) scale(1.02);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25), 0 0 35px rgba(255, 179, 0, 0.2);
 }
 
 .price-package .content .box .inner .price-tag {
@@ -983,7 +1013,7 @@ header .ham-burger.active span:nth-child(2) {
     text-align: center;
     font-weight: 700;
     width: 100%;
-    border-radius: 12px 12px 0 0; /* Only top corners rounded */
+    border-radius: 12px 12px 0 0;
 }
 
 .price-package .content .box .inner .text {
@@ -1035,19 +1065,19 @@ header .ham-burger.active span:nth-child(2) {
 
 .price-package .content .box .inner .img {
     text-align: center;
-    overflow: hidden; /* For image scaling */
-    border-radius: 0 0 12px 12px; /* Match container border-radius for bottom */
+    overflow: hidden;
+    border-radius: 0 0 12px 12px;
 }
 
 .price-package .content .box .inner .img img {
     width: 100%;
-    height: 200px; /* Fixed height for consistency */
-    object-fit: cover; /* Cover the area */
+    height: 200px;
+    object-fit: cover;
     transition: transform 0.5s ease-in-out;
 }
 
 .price-package .content .box .inner:hover .img img {
-    transform: scale(1.15); /* Zoom in on hover */
+    transform: scale(1.15);
 }
 
 /* Contact Section */
@@ -1064,14 +1094,14 @@ header .ham-burger.active span:nth-child(2) {
 }
 
 .contact .content .box {
-    flex: 0 0 calc(50% - 20px); /* Adjust for gap */
+    flex: 0 0 calc(50% - 20px);
     max-width: calc(50% - 20px);
     padding: 15px;
 }
 
 .contact .content .form {
     text-align: center;
-    background: rgba(255, 255, 255, 0.1); /* Subtle glassmorphism for form container */
+    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border-radius: 12px;
@@ -1087,8 +1117,8 @@ header .ham-burger.active span:nth-child(2) {
     max-width: 500px;
     padding: 10px 15px;
     margin: 0 auto 20px;
-    background: rgba(255, 255, 255, 0.15); /* Slightly more opaque for better input visibility */
-    border: 1px solid rgba(255, 255, 255, 0.3); /* More defined border */
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 8px;
     font-family: 'Open Sans', sans-serif;
     color: #FFFFFF;
@@ -1100,19 +1130,19 @@ header .ham-burger.active span:nth-child(2) {
 .contact .content .form textarea:focus {
     outline: none;
     border-color: #FFB300;
-    box-shadow: 0 0 15px rgba(255, 179, 0, 0.5); /* Stronger glow */
-    background-color: rgba(255, 255, 255, 0.2); /* Slightly lighter on focus */
+    box-shadow: 0 0 15px rgba(255, 179, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .contact .content .form input::placeholder,
 .contact .content .form textarea::placeholder {
-    color: #E0E0E0; /* Lighter placeholder text */
-    opacity: 0.8; /* Subtle transparency */
+    color: #E0E0E0;
+    opacity: 0.8;
 }
 
 .contact .content .form textarea {
     height: 120px;
-    resize: vertical; /* Allow vertical resizing */
+    resize: vertical;
 }
 
 .contact .content .form button {
@@ -1129,20 +1159,20 @@ header .ham-burger.active span:nth-child(2) {
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     margin: 0 auto;
     display: block;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 0 20px rgba(255, 179, 0, 0.2);
 }
 
 .contact .content .form button:hover {
     background: transparent;
     color: #FFFFFF;
-    border: 1px solid #FFFFFF; /* Add border on hover */
+    border: 1px solid #FFFFFF;
     transform: scale(1.08) translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 179, 0, 0.4);
 }
 
 .contact .content .text {
     text-align: center;
-    background: rgba(255, 255, 255, 0.05); /* Even more subtle glassmorphism for info box */
+    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
     border-radius: 12px;
@@ -1178,7 +1208,7 @@ header .ham-burger.active span:nth-child(2) {
 }
 
 .contact .content .text .info li {
-    display: flex; /* Use flexbox for icon alignment */
+    display: flex;
     align-items: center;
     margin-bottom: 15px;
     color: #FFFFFF;
@@ -1190,7 +1220,17 @@ header .ham-burger.active span:nth-child(2) {
 .contact .content .text .info li span {
     font-size: 20px;
     color: #FFB300;
-    margin-right: 15px; /* Space between icon and text */
+    margin-right: 15px;
+    min-width: 25px;
+    display: inline-block;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.contact .content .text .info li:hover span {
+    color: #FFC107;
+    text-shadow: 0 0 8px rgba(255, 179, 0, 0.5);
+    transform: scale(1.1);
 }
 
 .contact .content .text .social {
@@ -1205,29 +1245,38 @@ header .ham-burger.active span:nth-child(2) {
     text-align: center;
     background: linear-gradient(135deg, #FFB300 0%, #FFC107 100%);
     text-decoration: none;
-    display: inline-flex; /* Use inline-flex for better centering */
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin: 0 8px; /* Slightly adjusted margin */
+    margin: 0 8px;
     border-radius: 50%;
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
 }
 
 .contact .content .text .social a:hover {
     background: transparent;
-    border: 1px solid #FFFFFF; /* Add border on hover */
-    transform: scale(1.15) rotate(7deg); /* More pronounced effect */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    border: 2px solid #FFB300;
+    transform: scale(1.15) translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 179, 0, 0.4);
 }
 
 .contact .content .text .social a span {
-    color: #FFFFFF;
-    font-size: 20px;
+    color: #000000 !important;
+    font-size: 18px !important;
+    display: inline-block;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.contact .content .text .social a:hover span {
+    color: #FFB300 !important;
+    text-shadow: 0 0 10px rgba(255, 179, 0, 0.6);
 }
 
 .contact .content .text .copy {
-    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Softer border */
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
     margin-top: 30px;
     padding-top: 20px;
     color: #C5C5C5;
@@ -1253,21 +1302,59 @@ header .ham-burger.active span:nth-child(2) {
 }
 
 .contact .content .text .map iframe:hover {
-    opacity: 0.95; /* Slightly less opaque */
+    opacity: 0.95;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
 }
 
 .contact .content .text .copy a {
     color: #C5C5C5;
     text-decoration: none;
-    transition: color 0.3s ease-in-out;
+    transition: color 0.3ankan: all 0.3s ease-in-out;
 }
 
 .contact .content .text .copy a:hover {
     color: #FFB300;
 }
 
-/* Responsive */
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Extra Large Screens (1441px and above) */
+@media (min-width: 1441px) {
+    .about .content,
+    .service .content,
+    .start-today .content,
+    .schedule .content,
+    .price-package .content,
+    .gallery .content,
+    .classes .content {
+        gap: 24px;
+        justify-content: center;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    /* About and Price Package: 4 columns on very large screens */
+    .about .content .box,
+    .price-package .content .box {
+        flex: 0 0 calc(25% - 18px);
+        max-width: calc(25% - 18px);
+    }
+
+    /* Other sections: 3 columns */
+    .service .content .box,
+    .start-today .content .box,
+    .schedule .content .box,
+    .classes .content .box,
+    .gallery .content .box {
+        flex: 0 0 calc(33.33% - 16px);
+        max-width: calc(33.33% - 16px);
+    }
+
+    .gallery .content .box img {
+        height: 400px;
+        object-fit: cover;
+    }
+}
 
 /* Large Desktops & Laptops (1024px to 1440px) */
 @media (min-width: 1024px) and (max-width: 1440px) {
@@ -1433,7 +1520,26 @@ header .ham-burger.active span:nth-child(2) {
     }
     .classes .content .class-items .item .item-text {
         border-radius: 0 0 8px 8px; /* Round bottom corners when text is stacked below */
-        padding-top: 15px; /* Add some top padding to separate from image */
+        padding: 12px 15px; /* Proper padding with side margins */
+    }
+
+    /* Fix text sizing and spacing for class cards on mobile */
+    .classes .content .class-items .item .item-text h4 {
+        font-size: 20px; /* Reduced from 24px */
+        padding: 0 0 10px; /* Reduced bottom padding */
+        line-height: 1.3; /* Better line height */
+    }
+
+    .classes .content .class-items .item .item-text p {
+        font-size: 14px; /* Reduced from 16px */
+        line-height: 1.4; /* Tighter line height */
+        padding: 0 0 12px; /* Reduced bottom padding */
+        margin: 0 5px; /* Side margins to prevent text overflow */
+    }
+
+    .classes .content .class-items .item .item-text a {
+        font-size: 14px; /* Reduced from 16px */
+        padding: 8px 0; /* Vertical padding for better touch target */
     }
 
     /* Further reduce image heights for class items */
@@ -1445,6 +1551,36 @@ header .ham-burger.active span:nth-child(2) {
     /* Contact map iframe height adjustment */
     .contact .content .text .map iframe {
         height: 300px;
+    }
+
+    /* Timetable optimization for mobile */
+    .schedule .content .timing .table {
+        font-size: 12px; /* Smaller font for mobile */
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .schedule .content .timing .table td {
+        padding: 6px 4px; /* Reduced padding */
+        font-size: 12px; /* Smaller text */
+        line-height: 1.2; /* Tighter line height */
+        word-wrap: break-word; /* Allow text wrapping */
+        text-align: center;
+        border: 1px solid #DFDFDF;
+    }
+
+    .schedule .content .timing .table td.day {
+        font-size: 13px; /* Slightly larger for day headers */
+        font-weight: 600;
+        padding: 8px 4px; /* Slightly more padding for headers */
+    }
+
+    /* Make time slots more compact */
+    .schedule .content .timing .table tr td:not(.day) {
+        max-width: 80px; /* Limit width to force wrapping */
+        white-space: nowrap; /* Prevent text wrapping within cells initially */
+        overflow: hidden;
+        text-overflow: ellipsis; /* Add ellipsis for overflow */
     }
 
     /* About inner box minimum height adjustment */
@@ -1462,6 +1598,37 @@ header .ham-burger.active span:nth-child(2) {
     /* Adjust padding for text within price package boxes */
     .price-package .content .box .inner .text {
         padding: 15px;
+    }
+
+    /* Ensure touch-friendly sizing */
+    .contact .content .form input,
+    .contact .content .form textarea,
+    .contact .content .form button {
+        min-height: 44px; /* Apple's recommended touch target size */
+    }
+
+    /* Improve text readability on mobile */
+    body {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+
+    /* Prevent horizontal scrolling */
+    * {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Smooth scrolling for better UX */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Better button spacing on mobile */
+    button, .btn {
+        margin: 8px 0;
+        padding: 12px 20px;
+        min-height: 44px;
     }
 }
 
@@ -1517,4 +1684,77 @@ header .ham-burger.active span:nth-child(2) {
     .contact .content .form button {
         max-width: 100%;
     }
+
+    /* Further optimize class cards for very small screens */
+    .classes .content .class-items .item .item-text {
+        padding: 10px 12px; /* Even tighter padding */
+    }
+
+    .classes .content .class-items .item .item-text h4 {
+        font-size: 18px; /* Further reduced */
+        padding: 0 0 8px;
+    }
+
+    .classes .content .class-items .item .item-text p {
+        font-size: 13px; /* Further reduced */
+        line-height: 1.3;
+        padding: 0 0 10px;
+        margin: 0 3px; /* Tighter side margins */
+    }
+
+    .classes .content .class-items .item .item-text a {
+        font-size: 13px; /* Further reduced */
+    }
+
+    /* Ultra-compact timetable for very small screens */
+    .schedule .content .timing .table {
+        font-size: 11px; /* Even smaller font */
+    }
+
+    .schedule .content .timing .table td {
+        padding: 4px 2px; /* Minimal padding */
+        font-size: 11px;
+        line-height: 1.1;
+    }
+
+    .schedule .content .timing .table td.day {
+        font-size: 12px;
+        padding: 6px 2px;
+    }
+
+    .schedule .content .timing .table tr td:not(.day) {
+        max-width: 60px; /* Even more compact */
+    }
 }
+
+/* Social Media Icon Styling */
+.contact .content .text .social a span.fa-facebook:before {
+    content: "\f09a"; /* Facebook icon Unicode */
+}
+
+.contact .content .text .social a span.fa-instagram:before {
+    content: "\f16d"; /* Instagram icon Unicode */
+}
+
+.contact .content .text .social a span {
+    color: #000000 !important;
+    font-size: 18px !important;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.contact .content .text .social a:hover span {
+    color: #FFFFFF !important;
+}
+
+/* Ensure Font Awesome icons are visible */
+.fa {
+    font-family: FontAwesome !important;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Contact Section */
